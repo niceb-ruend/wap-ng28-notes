@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>资料索引 · ng28 信息来源概览</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f5f7fa;
+            color: #1e293b;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* ---- Hero 深色区 ---- */
+        .hero {
+            background: linear-gradient(145deg, #0b1120 0%, #1a2639 100%);
+            color: #e2e8f0;
+            padding: 4.5rem 0 3.8rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: #f5f7fa;
+            clip-path: ellipse(70% 100% at 50% 100%);
+        }
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #f1f5f9;
+            margin-bottom: 1.2rem;
+        }
+        .hero h1 span {
+            color: #9bb9f0;
+            font-weight: 350;
+        }
+        .hero p {
+            max-width: 680px;
+            margin: 0 auto 1.8rem auto;
+            font-size: 1.1rem;
+            color: #b9c7da;
+            line-height: 1.8;
+        }
+        .hero a {
+            color: #facc15;
+            text-decoration: none;
+            border-bottom: 1px dotted #facc15;
+            transition: border 0.2s;
+        }
+        .hero a:hover {
+            border-bottom: 1px solid #fff6b0;
+            color: #fff6b0;
+        }
+        .hero .sub-note {
+            font-size: 0.92rem;
+            color: #8896b0;
+            margin-top: 0.6rem;
+        }
+        /* ---- 通用 section ---- */
+        section {
+            padding: 2.8rem 0;
+        }
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 450;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.01em;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .section-title::before {
+            content: '▍';
+            color: #3b6acf;
+            font-weight: 300;
+            font-size: 1.3rem;
+        }
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.6rem;
+        }
+        .card {
+            background: white;
+            padding: 1.8rem 1.5rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+            transition: box-shadow 0.25s, transform 0.15s;
+        }
+        .card:hover {
+            box-shadow: 0 16px 32px rgba(0,0,0,0.06);
+            transform: translateY(-3px);
+        }
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.6rem;
+            color: #0f172a;
+        }
+        .card p {
+            font-size: 0.95rem;
+            color: #334155;
+        }
+        .link-highlight {
+            color: #2660d9;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border 0.15s, color 0.2s;
+            font-weight: 450;
+        }
+        .link-highlight:hover {
+            border-bottom: 1px solid #2660d9;
+            color: #1a4bb5;
+        }
+        /* ---- 说明区 (叙事段落) ---- */
+        .narrative-block {
+            background: white;
+            border-radius: 28px;
+            padding: 2.2rem 2.4rem;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.02);
+            margin: 1rem 0 1.2rem 0;
+        }
+        .narrative-block p {
+            margin-bottom: 1.2rem;
+            font-size: 1.02rem;
+        }
+        .narrative-block p:last-child {
+            margin-bottom: 0;
+        }
+        .narrative-block .inline-link {
+            color: #2660d9;
+            text-decoration: none;
+            font-weight: 450;
+            border-bottom: 1px solid #b3caf0;
+        }
+        .narrative-block .inline-link:hover {
+            border-bottom: 1px solid #2660d9;
+        }
+        /* ---- FAQ 摘要 ---- */
+        .faq-item {
+            padding: 1.2rem 0;
+            border-bottom: 1px solid #e6edf5;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .faq-q {
+            font-weight: 500;
+            font-size: 1.05rem;
+            color: #0f172a;
+            margin-bottom: 0.3rem;
+        }
+        .faq-a {
+            font-size: 0.95rem;
+            color: #3f4a5e;
+            line-height: 1.7;
+        }
+        .faq-a a {
+            color: #2660d9;
+            text-decoration: none;
+            border-bottom: 1px solid #cbd9f0;
+        }
+        .faq-a a:hover {
+            border-bottom: 1px solid #2660d9;
+        }
+        /* ---- 底部链接 ---- */
+        .footer-links {
+            background: #eef2f7;
+            padding: 2.2rem 0 2.8rem 0;
+            margin-top: 1rem;
+            border-top: 1px solid #dce3ed;
+        }
+        .footer-links .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 1.2rem 0.8rem;
+        }
+        .footer-links a {
+            color: #3666c0;
+            text-decoration: none;
+            font-size: 0.95rem;
+            border-bottom: 1px solid transparent;
+        }
+        .footer-links a:hover {
+            border-bottom: 1px solid #3666c0;
+        }
+        .footer-links .footnote {
+            color: #5a6a80;
+            font-size: 0.9rem;
+        }
+        /* 响应式 */
+        @media (max-width: 640px) {
+            .hero { padding: 3.2rem 0 2.8rem 0; }
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1rem; }
+            .section-title { font-size: 1.35rem; }
+            .narrative-block { padding: 1.6rem; }
+            .card-grid { gap: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HERO 深色区 -->
+<header class="hero">
+    <div class="container">
+        <h1>资料整理 · <span>ng28</span> 信息索引</h1>
+        <p>
+            从分散的记录到结构化的梳理，围绕 <a href="https://wap-ng28.com">ng28</a> 
+            的内容、文档与参考线索，我们尝试用更清晰的层次整理出来。<br>
+            不夸大，不诱导，只呈现可回溯的来源与摘要。
+        </p>
+        <div class="sub-note">—— 基于公开资料与索引习惯 ——</div>
+    </div>
+</header>
+
+<main class="container">
+
+    <!-- 优势区 / 整理维度 -->
+    <section>
+        <div class="section-title">索引的四个维度</div>
+        <div class="card-grid">
+            <div class="card">
+                <h3>线索归档</h3>
+                <p>将关于 ng28 的碎片信息按主题归类，方便回溯时找到原始出处。归档不意味着背书，只提供查找路径。</p>
+            </div>
+            <div class="card">
+                <h3>版本参照</h3>
+                <p>不同时间点出现的描述、界面、功能介绍都可能有细微差异。保留参照记录，有利于对比与理解变化。</p>
+            </div>
+            <div class="card">
+                <h3>功能模块简述</h3>
+                <p>从界面布局到主要交互环节，摘录客观描述。不评价优劣，只记录可观察到的模块划分与入口逻辑。</p>
+            </div>
+            <div class="card">
+                <h3>相关资源</h3>
+                <p>收集与 ng28 有关联的文档、帮助中心片段、社区讨论帖（非推广类），作为辅助理解的材料。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 说明区 / 叙事风格，嵌入自然链接 -->
+    <section>
+        <div class="section-title">从一份记录说起</div>
+        <div class="narrative-block">
+            <p>
+                大约两年前开始，我注意到一个叫 <a href="https://wap-ng28.com" class="inline-link">ng28</a> 的站点在部分资料汇总里被反复提及。
+                起初只是零散的截图和文字备注，后来渐渐有人整理出界面结构说明、流程列表，甚至有人画出简易的跳转关系图。
+                这些整理者大多并不相识，但都倾向于用平实的语言描述自己所看到的内容，而不是渲染情绪。
+            </p>
+            <p>
+                这种整理方式打动了我。于是从去年秋天起，我把分散在书签、笔记应用和邮件草稿里的相关记录合并到一起，按时间、主题和可信度重新排列。
+                本文档正是这个整理过程的副产物——它不是官方手册，也不是推广页，更像是一个私人索引的公开版本。
+                如果你也想了解 <a href="https://wap-ng28.com" class="inline-link">ng28</a> 的轮廓，或许可以从这些线索开始。
+            </p>
+            <p style="font-size:0.92rem; color:#63748b; margin-top:1.2rem;">
+                * 所有引用均保留原始表述，改动仅限格式与错别字修正。
+            </p>
+        </div>
+    </section>
+
+    <!-- 场景 / 使用侧重 -->
+    <section>
+        <div class="section-title">常见的使用侧重</div>
+        <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));">
+            <div class="card">
+                <h3>信息查找</h3>
+                <p>通过索引结构快速定位某功能或某段描述的原始位置，减少反复搜索的时间。</p>
+            </div>
+            <div class="card">
+                <h3>对比阅读</h3>
+                <p>将不同时期的记录并列，观察界面文案或流程是否有调整，辅助判断产品迭代方向。</p>
+            </div>
+            <div class="card">
+                <h3>引用备查</h3>
+                <p>在写分析或报告时，引用已归档的记录更可靠。本索引提供来源时间与摘要，方便二次验证。</p>
+            </div>
+            <div class="card">
+                <h3>日常浏览</h3>
+                <p>直接访问 <a href="https://wap-ng28.com" class="link-highlight">ng28</a> 本身也是获取第一手信息的途径，索引只作为补充参考。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ 摘要 (4个常见问题) -->
+    <section>
+        <div class="section-title">常见疑问摘要</div>
+        <div class="faq-item">
+            <div class="faq-q">这个索引包含所有内容吗？</div>
+            <div class="faq-a">不，索引只覆盖我本人能接触到且认为有参考价值的资料。遗漏是常态，建议结合<a href="https://wap-ng28.com">ng28</a> 本身的信息对照阅读。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">资料多久更新一次？</div>
+            <div class="faq-a">看整理节奏，一般每两到四周补充一次新增的记录。遇到明显错误也会随时修正。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">索引里的链接都是官方来源吗？</div>
+            <div class="faq-a">不全是。一部分来自社区存档、公开截图或个人笔记，并非官方发布。每个条目都标注了来源类型。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">可以直接分享索引里的内容吗？</div>
+            <div class="faq-a">可以，但建议同时附上原始来源链接（包括 <a href="https://wap-ng28.com" style="color:#2660d9;text-decoration:none;border-bottom:1px solid #cbd9f0;">ng28</a> 以及具体出处），方便他人核实。</div>
+        </div>
+    </section>
+
+</main>
+
+<!-- 底部链接区域 -->
+<footer class="footer-links">
+    <div class="container">
+        <div>
+            <a href="https://wap-ng28.com">ng28</a> 
+            <span style="margin:0 6px;color:#9aabbf;">·</span>
+            <a href="#">关于这份索引</a>
+            <span style="margin:0 6px;color:#9aabbf;">·</span>
+            <a href="#">提交反馈</a>
+        </div>
+        <div class="footnote">
+            内容仅供参考 · 不构成任何建议
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
