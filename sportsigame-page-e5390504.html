@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 资料索引 · sportsigame.com</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+            background: #f7f3ee;
+            color: #2e2b28;
+            line-height: 1.7;
+            padding: 2rem 1rem;
+        }
+        .wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #fdfbf9;
+            border-radius: 28px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.02);
+            padding: 2.2rem 2.5rem;
+        }
+        @media (max-width: 640px) {
+            .wrapper { padding: 1.6rem 1.2rem; }
+            body { padding: 1rem 0.6rem; }
+        }
+
+        /* 导航区 */
+        .top-nav {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 1.6rem 0.8rem;
+            border-bottom: 1px solid #e3dcd3;
+            padding-bottom: 0.8rem;
+            margin-bottom: 2rem;
+        }
+        .top-nav .logo {
+            font-size: 1.5rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            color: #4b3f35;
+            text-decoration: none;
+            margin-right: auto;
+        }
+        .top-nav .logo small {
+            font-size: 0.75rem;
+            font-weight: 400;
+            color: #8a7e72;
+            margin-left: 0.25rem;
+        }
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem 1.8rem;
+            font-size: 0.95rem;
+        }
+        .nav-links a {
+            color: #5f5346;
+            text-decoration: none;
+            padding: 0.2rem 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s;
+        }
+        .nav-links a:hover {
+            border-bottom-color: #b8a99a;
+        }
+
+        /* 段落与标题 */
+        h1, h2, h3 {
+            font-weight: 450;
+            letter-spacing: 0.3px;
+            color: #3c332b;
+        }
+        h1 {
+            font-size: 2.1rem;
+            line-height: 1.2;
+            margin-bottom: 0.6rem;
+        }
+        h2 {
+            font-size: 1.5rem;
+            margin: 2rem 0 0.75rem 0;
+            border-left: 4px solid #cbb9a6;
+            padding-left: 0.8rem;
+        }
+        h3 {
+            font-size: 1.15rem;
+            margin: 0 0 0.4rem 0;
+        }
+        p {
+            margin-bottom: 1rem;
+        }
+
+        /* hero 区 (柔光介绍) */
+        .hero {
+            background: #f1ece6;
+            border-radius: 24px;
+            padding: 1.8rem 2rem;
+            margin-bottom: 2rem;
+        }
+        .hero p:last-child { margin-bottom: 0; }
+
+        /* 引用块 / 提示框 */
+        .info-box {
+            background: #f5efe8;
+            border-left: 6px solid #b4a392;
+            padding: 1.2rem 1.6rem;
+            border-radius: 4px 18px 18px 4px;
+            margin: 1.6rem 0;
+        }
+        .info-box p { margin-bottom: 0.4rem; }
+        .info-box p:last-child { margin-bottom: 0; }
+
+        .note {
+            background: #f8f3ed;
+            border: 1px solid #dbd0c4;
+            border-radius: 18px;
+            padding: 1.2rem 1.6rem;
+            margin: 1.2rem 0;
+            font-size: 0.95rem;
+        }
+
+        /* 场景卡片 */
+        .scenes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.4rem;
+            margin: 1.4rem 0;
+        }
+        .scene-card {
+            background: #fbf8f5;
+            border: 1px solid #e6ddd4;
+            border-radius: 24px;
+            padding: 1.5rem 1.2rem 1.2rem;
+            transition: box-shadow 0.2s;
+        }
+        .scene-card:hover {
+            box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+        }
+        .scene-card h3 {
+            margin-top: 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .scene-card p {
+            font-size: 0.95rem;
+            color: #4f4439;
+        }
+
+        /* 列表样式 */
+        ul, ol {
+            margin-left: 1.4rem;
+            margin-bottom: 1rem;
+        }
+        li { margin-bottom: 0.4rem; }
+
+        /* 链接 */
+        a {
+            color: #6f5b47;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #cdbca9;
+        }
+        a:hover {
+            color: #3f2e1f;
+            text-decoration-color: #7f6a54;
+        }
+        .footer {
+            border-top: 1px solid #e2d8ce;
+            margin-top: 2.4rem;
+            padding-top: 1.4rem;
+            font-size: 0.9rem;
+            color: #6b5f53;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 0.6rem;
+        }
+        .footer a { color: #6b5f53; }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+
+    <!-- 导航 -->
+    <nav class="top-nav">
+        <a href="https://sportsigame.com" class="logo">爱游戏</a>
+        <div class="nav-links">
+            <a href="#intro">整理说明</a>
+            <a href="#scenes">使用场景</a>
+            <a href="#faq">常见说明</a>
+        </div>
+    </nav>
+
+    <!-- hero 介绍 -->
+    <div class="hero" id="intro">
+        <h1>信息索引 · 资料整理</h1>
+        <p>这里是一份关于 <a href="https://sportsigame.com">爱游戏</a> 的内容索引说明。页面从资料归集角度梳理了平台的基本信息、常见使用场景以及一些值得注意的细节，供有兴趣的人参考。</p>
+        <p>所有描述均基于公开可查的内容进行整理，不包含主观推测。下面三个模块分别对应不同方向的资料汇编，帮助更快定位自己关注的部分。</p>
+    </div>
+
+    <!-- 三个场景模块 -->
+    <h2 id="scenes">三个信息场景</h2>
+    <p>根据对站内内容结构和用户反馈的观察，以下三种情况出现频率较高。每个场景都附有简短的资料说明。</p>
+
+    <div class="scenes">
+        <div class="scene-card">
+            <h3>📋 内容分类查阅</h3>
+            <p>站内内容按照类型和主题做了划分。对于初次接触的访客，建议先浏览分类总览，了解大致的资源分布。</p>
+            <p style="margin-top:0.6rem; font-size:0.9rem; color:#6f5f50;">涵盖体育、策略、休闲等多个方向。</p>
+        </div>
+        <div class="scene-card">
+            <h3>🧭 功能与导航</h3>
+            <p>部分用户更关注网站的结构和操作路径。如果你也在寻找特定功能的入口，可以参考整理后的导航说明，按图索骥。</p>
+            <p style="margin-top:0.6rem; font-size:0.9rem; color:#6f5f50;">包括菜单层级、搜索方式等。</p>
+        </div>
+        <div class="scene-card">
+            <h3>📌 动态与更新</h3>
+            <p>网站会不定期进行内容调整或新增板块。有长期关注需求的人，可以留意更新日志或相关公告，保持信息同步。</p>
+            <p style="margin-top:0.6rem; font-size:0.9rem; color:#6f5f50;">建议定期查看以获取最新动态。</p>
+        </div>
+    </div>
+
+    <!-- 说明块（替代FAQ摘要） -->
+    <h2 id="faq">常见说明 · 简要整理</h2>
+    <div class="info-box">
+        <p><strong>关于访问路径</strong>：直接通过 <a href="https://sportsigame.com">爱游戏</a> 进入即可查看全部公开内容。站内结构清晰，无需额外注册即可浏览大部分板块。</p>
+        <p><strong>关于内容来源</strong>：所有素材和资料均来自平台自身，本页面仅作索引和介绍，不涉及二次编辑或转载。</p>
+        <p><strong>关于设备适配</strong>：建议在电脑或平板设备上使用，以获得更完整的排版体验。移动端亦可正常浏览，部分交互细节可能有所调整。</p>
+    </div>
+
+    <div class="note">
+        <p>📎 如果你在浏览过程中遇到任何不明确的地方，或者想深入了解某个板块，不妨回到首页从头梳理。很多疑问在 <a href="https://sportsigame.com">爱游戏</a> 的引导页面中已有基础说明。</p>
+    </div>
+
+    <!-- 补充段落：资料整理角度 -->
+    <h2>为何以资料索引为切入点</h2>
+    <p>面对一个信息密度不低的站点，直接进入所有板块容易产生遗漏。因此本页面尝试以“整理过的笔记”形式，把常见疑问和内容分布拆解成可翻阅的模块。</p>
+    <p>后续如果有新的板块上线或结构变化，这里的索引也会随之更新（非自动，需要手动同步）。如果你发现自己关注的内容没有被涵盖，可能是该部分近期刚完成调整，建议以站内实际显示为准。</p>
+
+    <!-- 页脚 -->
+    <div class="footer">
+        <span>内容索引 · 基于公开信息整理</span>
+        <span>主站：<a href="https://sportsigame.com">爱游戏</a></span>
+    </div>
+
+</div>
+</body>
+</html>
