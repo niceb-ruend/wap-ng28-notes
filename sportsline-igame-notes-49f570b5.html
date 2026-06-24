@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 资料索引与信息整理</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', system-ui, sans-serif;
+      background-color: #f4f7fa;
+      color: #2c3e4f;
+      line-height: 1.7;
+    }
+
+    /* 深色头图 */
+    .hero {
+      background: linear-gradient(145deg, #0b1a2b 0%, #1f3348 100%);
+      color: #e9edf2;
+      padding: 4rem 2rem 3.2rem;
+      text-align: center;
+      border-bottom: 4px solid #3b9c8c;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 100%;
+      height: 28px;
+      background: radial-gradient(ellipse at 50% 100%, rgba(59, 156, 140, 0.25) 0%, transparent 70%);
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero p {
+      max-width: 680px;
+      margin: 0.5rem auto 0;
+      font-size: 1.1rem;
+      color: #b6cdde;
+      font-weight: 300;
+    }
+
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 2.4rem 1.5rem 3.6rem;
+    }
+
+    /* 目录感布局 — 卡片网格 */
+    .grid-dir {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.8rem;
+      margin-bottom: 2.8rem;
+    }
+
+    .dir-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.8rem 1.5rem 1.5rem;
+      box-shadow: 0 6px 16px rgba(0, 20, 30, 0.06);
+      transition: transform 0.2s ease, box-shadow 0.25s;
+      border: 1px solid rgba(59, 156, 140, 0.12);
+    }
+
+    .dir-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 28px rgba(27, 70, 70, 0.08);
+    }
+
+    .dir-card .icon {
+      display: inline-block;
+      font-size: 2rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .dir-card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #1f3a4b;
+      letter-spacing: 0.3px;
+    }
+
+    .dir-card p {
+      font-size: 0.95rem;
+      color: #4a5f6e;
+      margin-bottom: 0.5rem;
+    }
+
+    .dir-card .tag {
+      display: inline-block;
+      background: #eef5f2;
+      padding: 0.2rem 0.8rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      color: #2b6b5f;
+      font-weight: 500;
+    }
+
+    /* 说明区 / 提示区卡片样式 */
+    .info-panel {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 2rem 2.2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 14px rgba(0, 20, 30, 0.04);
+      border-left: 6px solid #3b9c8c;
+    }
+
+    .info-panel h2 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-bottom: 0.6rem;
+      color: #1f3348;
+    }
+
+    .info-panel p {
+      margin-bottom: 0.8rem;
+      color: #2d4657;
+    }
+
+    .info-panel ul {
+      margin: 0.8rem 0 0 1.2rem;
+      color: #2d4657;
+    }
+
+    .info-panel ul li {
+      margin-bottom: 0.4rem;
+    }
+
+    .tip-box {
+      background: #eef6f3;
+      border-radius: 20px;
+      padding: 1.6rem 2rem;
+      margin: 1.8rem 0;
+      border: 1px dashed #3b9c8c;
+      color: #1f3f42;
+    }
+
+    .tip-box strong {
+      color: #1f6b5f;
+    }
+
+    /* 相关信息区 */
+    .related-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 2rem 2.2rem;
+      margin: 2rem 0 1.2rem;
+      box-shadow: 0 4px 14px rgba(0, 20, 30, 0.04);
+      border-right: 6px solid #3b9c8c;
+    }
+
+    .related-col {
+      flex: 1 1 200px;
+    }
+
+    .related-col h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #1f3a4b;
+      border-bottom: 2px solid #d4e4de;
+      padding-bottom: 0.4rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .related-col p, .related-col a {
+      font-size: 0.95rem;
+      color: #2c4a5a;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    /* 强调色链接 */
+    a {
+      color: #1b7f6e;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px dotted transparent;
+      transition: border-color 0.15s;
+    }
+
+    a:hover {
+      border-bottom-color: #1b7f6e;
+      color: #126356;
+    }
+
+    .btn-soft {
+      display: inline-block;
+      background: transparent;
+      border: 1.5px solid #3b9c8c;
+      color: #1b7f6e;
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 500;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+
+    .btn-soft:hover {
+      background: #3b9c8c;
+      color: #fff;
+      border-color: #3b9c8c;
+    }
+
+    /* FAQ 摘要 */
+    .faq-mini {
+      background: #f9fcfb;
+      border-radius: 18px;
+      padding: 1.4rem 1.8rem;
+      margin-top: 1.8rem;
+      border: 1px solid #d8e6e0;
+    }
+
+    .faq-mini details {
+      margin-bottom: 0.6rem;
+      cursor: pointer;
+    }
+
+    .faq-mini summary {
+      font-weight: 600;
+      color: #1f3a4b;
+      margin-bottom: 0.3rem;
+    }
+
+    .faq-mini details p {
+      margin-left: 0.8rem;
+      color: #3c5a6a;
+      font-size: 0.9rem;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #d5e2db;
+      margin: 1.8rem 0;
+    }
+
+    .footer-note {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #586f7c;
+      margin-top: 2.2rem;
+      border-top: 1px solid #d9e5df;
+      padding-top: 1.8rem;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2rem; }
+      .hero p { font-size: 1rem; }
+      .info-panel, .related-section { padding: 1.6rem 1.2rem; }
+      .grid-dir { gap: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>📚 资料索引 · 信息整理</h1>
+  <p>围绕平台内容的知识化梳理，以目录式结构提供清晰入口<br>温和检索，轻量参考</p>
+</header>
+
+<main class="container">
+
+  <!-- 目录感布局：卡片网格 -->
+  <div class="grid-dir">
+    <div class="dir-card">
+      <div class="icon">📋</div>
+      <h3>玩法指南</h3>
+      <p>规则说明、计分方式与常见术语，便于快速查阅。</p>
+      <span class="tag">基础资料</span>
+    </div>
+    <div class="dir-card">
+      <div class="icon">📌</div>
+      <h3>项目分类</h3>
+      <p>按主题与类型梳理，帮助定位感兴趣的方向。</p>
+      <span class="tag">结构索引</span>
+    </div>
+    <div class="dir-card">
+      <div class="icon">🛠️</div>
+      <h3>辅助工具</h3>
+      <p>统计记录、提醒设置、界面偏好等实用功能参考。</p>
+      <span class="tag">效率</span>
+    </div>
+    <div class="dir-card">
+      <div class="icon">📖</div>
+      <h3>更新日志</h3>
+      <p>版本内容调整与优化记录，保持信息透明。</p>
+      <span class="tag">历史</span>
+    </div>
+  </div>
+
+  <!-- 说明区 -->
+  <div class="info-panel">
+    <h2>📄 说明与定位</h2>
+    <p>本页立足于信息整理与知识库入口，不直接提供操作界面，而是将相关内容按目录、提示、相关参考三个层面呈现。如果您正在寻找更完整的平台功能，可以直接了解 <a href="https://sportsline-igame.com">爱游戏</a> 所提供的服务与内容体系。本站内容均以客观整理为原则，不夸大、不诱导。</p>
+    <p>资料内容主要来自公开信息与用户反馈的常见关注点，持续补充与修订。</p>
+  </div>
+
+  <!-- 提示区 -->
+  <div class="tip-box">
+    <strong>💡 提示</strong> · 资料索引仅作辅助参考，具体规则与数据请以实际界面为准。建议结合自身需求，灵活使用各分类入口。<br>
+    <span style="display:inline-block; margin-top:0.4rem;">🔍 信息检索时，可优先使用关键词定位，或根据卡片标签快速筛选。</span>
+  </div>
+
+  <!-- 相关信息区 -->
+  <div class="related-section">
+    <div class="related-col">
+      <h4>🧩 相关主题</h4>
+      <p>• 平台动态与调整</p>
+      <p>• 常见术语对照</p>
+      <p>• 界面导航说明</p>
+    </div>
+    <div class="related-col">
+      <h4>📎 参考资源</h4>
+      <p>• 用户手册摘要</p>
+      <p>• 功能更新记录</p>
+      <p>• 社区讨论整理</p>
+    </div>
+    <div class="related-col">
+      <h4>🔗 链接</h4>
+      <p><a href="https://sportsline-igame.com">爱游戏</a></p>
+      <p style="font-size:0.85rem; color:#4b6f7a;">（资料索引外部地址）</p>
+    </div>
+  </div>
+
+  <!-- FAQ 摘要 (无需过多细节) -->
+  <div class="faq-mini">
+    <h4 style="margin-bottom:0.6rem; font-weight:600;">❓ 常见疑问摘要</h4>
+    <details>
+      <summary>如何高效利用这个资料页？</summary>
+      <p>根据顶部卡片定位方向，再阅读说明区的概述，如有兴趣可进一步探索链接。本页主要作为索引起点。</p>
+    </details>
+    <details>
+      <summary>信息多久更新一次？</summary>
+      <p>随平台内容调整不定期修订，尽可能保持准确。具体变更记录可参考更新日志卡片。</p>
+    </details>
+    <details>
+      <summary>遇到资料与实际情况不符怎么办？</summary>
+      <p>建议以实际页面为准，同时欢迎通过反馈渠道提醒修正。本页仅作辅助参考。</p>
+    </details>
+  </div>
+
+  <hr>
+
+  <p style="text-align:center; font-size:0.92rem; color:#3c5f6b; max-width:700px; margin:0 auto;">
+    资料整理以清晰、克制为原则，不包含任何预测、承诺或诱导性表述。<br>
+    如果您希望浏览更加完整的服务内容，可访问 <a href="https://sportsline-igame.com">爱游戏</a>。
+  </p>
+
+  <div class="footer-note">
+    <span>📂 索引页 · 内容供参考</span>
+  </div>
+
+</main>
+
+</body>
+</html>
