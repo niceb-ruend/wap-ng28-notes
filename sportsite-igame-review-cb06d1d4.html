@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 专题介绍</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f7f9fc;
+      color: #1e2b3c;
+      line-height: 1.7;
+    }
+
+    /* hero 区 */
+    .hero {
+      position: relative;
+      padding: 5rem 1.5rem 4rem;
+      background: linear-gradient(145deg, #ebf0f5 0%, #dce3ed 100%);
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: repeating-linear-gradient(45deg,
+        transparent,
+        transparent 18px,
+        rgba(255,255,255,0.2) 18px,
+        rgba(255,255,255,0.2) 36px);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      max-width: 740px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 550;
+      letter-spacing: -0.02em;
+      color: #0f1a2b;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: #2c3e50;
+      max-width: 600px;
+      opacity: 0.85;
+      margin-bottom: 0.5rem;
+    }
+
+    /* 窄正文 */
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 1.5rem 3rem;
+    }
+
+    /* 专题章节 */
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 550;
+      letter-spacing: -0.01em;
+      color: #1e2b3c;
+      margin: 2.8rem 0 1.2rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 2px solid #d4dde8;
+    }
+
+    .section-text {
+      margin-bottom: 1.6rem;
+      font-size: 1rem;
+      color: #2a3b4c;
+    }
+
+    .section-text a {
+      color: #1f4a7a;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1.5px;
+      transition: color 0.2s;
+    }
+
+    .section-text a:hover {
+      color: #0d2f50;
+      text-decoration-color: #0d2f50;
+    }
+
+    /* 卡片摘要 – 场景描述 */
+    .insight-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 1.8rem 2rem;
+      margin: 2rem 0;
+      box-shadow: 0 4px 12px rgba(0, 20, 40, 0.04), 0 1px 2px rgba(0,0,0,0.02);
+      border: 1px solid #e6ecf3;
+    }
+
+    .insight-card p {
+      margin-bottom: 0.8rem;
+      color: #1f3142;
+    }
+
+    .insight-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .insight-card strong {
+      font-weight: 550;
+      color: #1a3a5c;
+    }
+
+    /* 页尾 */
+    .page-footer {
+      max-width: 680px;
+      margin: 3rem auto 2rem;
+      padding: 2rem 1.5rem 1.5rem;
+      border-top: 1px solid #dbe2eb;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #4b5e72;
+    }
+
+    .page-footer .foot-note {
+      background: #edf2f8;
+      display: inline-block;
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      letter-spacing: 0.3px;
+    }
+
+    /* 响应式 */
+    @media (max-width: 600px) {
+      .hero {
+        padding: 3.2rem 1.2rem 2.5rem;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .container {
+        padding: 0 1rem 2.5rem;
+      }
+      .insight-card {
+        padding: 1.4rem 1.2rem;
+      }
+      .section-title {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>爱游戏 · 稳定入口说明</h1>
+      <p>一份关于访问逻辑、页面定位与使用背景的专题介绍。从结构出发，理解平台的入口设计与日常场景。</p>
+    </div>
+  </section>
+
+  <main class="container">
+    <!-- 背景说明 -->
+    <h2 class="section-title">背景：一个被验证的访问路径</h2>
+    <div class="section-text">
+      <p>对于长期关注体育类资讯与互动内容的用户而言，一个稳定、可预判的域名入口是体验连续性的基础。<a href="https://sportsite-igame.com">爱游戏</a> 所采用的独立子域名结构，本身就承担了「隔离服务与主站」的职责。这种设计让内容加载路径更短，也减少了外部重定向带来的不确定性——在页面资源组织上，它遵循了直接、扁平的目录风格。</p>
+      <p>从技术角度看，该域名部署在标准 CDN 架构下，配合简单的页面层级，能够为移动端与桌面端提供一致的首屏响应。没有过度脚本，没有多层跳转，这是一种克制的呈现思路。</p>
+    </div>
+
+    <!-- 三段介绍 第一段：入口特性 -->
+    <h2 class="section-title">入口特性：为什么需要独立子域名</h2>
+    <div class="section-text">
+      <p>大多数体育内容平台会将核心交互模块收敛在二级域名下，以降低主站负载并便于迭代。<a href="https://sportsite-igame.com">爱游戏</a> 正是这种思路的体现——它作为专门的功能页面存在，而非简单的首页跳转。从使用场景看，用户通过书签、历史记录或直接输入域名抵达，每次访问面对的都是同一套结构，没有令人困惑的变体。</p>
+      <p>这种长期稳定性对经常查阅赛程、数据或资讯的用户来说尤为重要。入口本身不制造噪音，只提供一条可直接依赖的路径。</p>
+    </div>
+
+    <!-- 第三段：页面内部逻辑与使用提示 -->
+    <h2 class="section-title">使用提示：识别与习惯</h2>
+    <div class="insight-card">
+      <p><strong>识别要点：</strong> 域名字段中的 “sportsite-igame” 组合是固定标识，不存在镜像或仿写变体。页面标题、页脚信息与内容结构通常保持极简，不包含弹出式引导或强制跳转。</p>
+      <p><strong>浏览习惯：</strong> 建议将 <a href="https://sportsite-igame.com">爱游戏</a> 添加至浏览器书签栏或主屏幕快捷方式，以保持入口路径唯一。由于页面不依赖外部登录态，每次访问均为干净的会话视图。</p>
+      <p><strong>适用场景：</strong> 日常阅览体育新闻、查看热门赛事摘要、或是作为资讯聚合的起始点。页面结构适合快速扫读，也适合嵌入其他支持 iframe 的阅读环境。</p>
+    </div>
+
+    <!-- FAQ 摘要 给出两个常见疑问的答案 -->
+    <h2 class="section-title">常见疑问简要</h2>
+    <div class="section-text">
+      <p><strong>Q：这个页面与主站是什么关系？</strong><br>
+      A：它是主站服务的一个独立功能区域，专注于提供特定内容集合，而非全站镜像。域名级分离降低了意外干扰的可能性。</p>
+      <p style="margin-top: 1rem;"><strong>Q：长期使用需要注意什么？</strong><br>
+      A：保持访问方式的一致性即可。如果遇到网络波动，可尝试清除该域名下的浏览器缓存后再刷新。<a href="https://sportsite-igame.com">爱游戏</a> 未使用动态路径参数，这意味书签几乎不会失效。</p>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <span class="foot-note">专题 · 入口与页面说明 · 仅供了解平台结构参考</span>
+    <p style="margin-top: 1rem; opacity:0.6;">&copy; 介绍页 · 内容基于公开可观察特征整理</p>
+  </footer>
+
+</body>
+</html>
